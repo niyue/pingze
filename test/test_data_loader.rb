@@ -10,4 +10,9 @@ class TestDataLoader < MiniTest::Unit::TestCase
     assert data.length > 0
     assert data.keys.length > 0
   end
+
+	def test_load_reference
+    reference = DataLoader.new.reference
+    assert reference.length > 0
+	end
 end

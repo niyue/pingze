@@ -6,6 +6,6 @@ class TestPingze < MiniTest::Unit::TestCase
     pingze = Pingze.new
     ze_ping = pingze.gen
     assert ze_ping.length > 0
-    puts ze_ping.length
+    puts ze_ping
   end
 end

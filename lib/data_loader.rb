@@ -1,6 +1,6 @@
 class DataLoader
   def load 
-    file = File.new(data_path, "r")
+    file = File.new(data_path('hanzi.txt'), "r")
     chars = {}
     while(line = file.gets)
       char = line.split  
@@ -13,7 +13,17 @@ class DataLoader
     chars
   end
 
-  def data_path
-    File.join(File.dirname(__FILE__), "hanzi.txt")
+	def reference
+    file = File.new(data_path('chuci.txt'), "r")
+    reference = ''
+    while(line = file.gets)
+			reference += line
+		end
+		reference
+	end
+
+  def data_path(file)
+    File.join(File.dirname(__FILE__), file)
   end
+
 end
