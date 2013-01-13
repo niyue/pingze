@@ -21,6 +21,17 @@ class Pingze
 		valid_chars = all_valid_chars(reference)
 		valid_names = all_valid_names(reference)
 
+    #generate(ze, ping, pinyin_chars, valid_chars, valid_names)
+    zeping = []
+    ze.each do |z|
+      ping.each do |p|
+        zeping << "#{z} #{p} #{pinyin_chars[z]} #{pinyin_chars[p]}" 
+      end
+    end
+    zeping
+  end
+
+  def generate(ze, ping, pinyin_chars, valid_chars, valid_names)
     ze_ping = []
     ze.each do |z|
 			characters = pinyin_chars[z]
@@ -52,7 +63,7 @@ class Pingze
 	def ping(data)
 		ping = Set.new
     data.each do |ch, pinyin|
-      if yin_ping? pinyin or yang_ping? pinyin
+      if (yin_ping? pinyin or yang_ping? pinyin)
         ping << pinyin
 			end
 		end
@@ -77,6 +88,7 @@ class Pingze
 			end
 			pinyin_chars[pinyin] << ch
     end
+    pinyin_chars
 	end
 
 	def all_valid_chars(reference)
